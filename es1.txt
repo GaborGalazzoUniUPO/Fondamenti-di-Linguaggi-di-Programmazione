@@ -1,0 +1,33 @@
+// TERMINI
+
+t ::= 
+    0
+    succ t
+    pred t
+    iszero t
+    true 
+    false
+    if t then t else t 
+
+// VALORI
+
+v ::= 
+    true 
+    false 
+    nv 
+nv ::= 
+    0 
+    succ nv 
+
+// COMPUTAZIONE
+
+(E-PredSucc) pred succ nv −→ nv
+(E-PredZero) pred 0 −→ 0
+(E-IsZeroSucc) iszero succ nv −→ false
+(E-IsZeroZero) iszero 0 −→ true
+
+// CONGRUENZA
+
+                t1 −→ t1'
+(E-Lazy)   -------------------  
+             t1 t2 −→ t1' t2

@@ -1,0 +1,32 @@
+// TERMINE
+(λx.x) ( (λz.(λy.z y)) (λw.w) )
+
+// PER NOME
+
+        (λx.x)( (λz.(λy.z y)) (λw.w) ) −-> (λz.(λy.z y)) (λw.w)
+(Beta) -------------------------------------------------------------
+                    (λx.x) ( (λz.(λy.z y)) (λw.w) )      // (λx.x) è un valore -> mi trovo davanti ad una applicazione
+
+
+            (λz.(λy.z y)) (λw.w) --> λy.(λw.w) y
+(E-App1) -------------------------------------------
+                (λz.(λy.z y)) (λw.w)      //sono entrambi termini redessi -> con la chiamata per nome riduco il più a sinistra
+
+--  λy.(λw.w) y     Non è un redesso, termino
+
+
+// BETA RIDUZIONE
+
+        (λx.x)( (λz.(λy.z y)) (λw.w) ) −-> (λz.(λy.z y)) (λw.w)
+(Beta) -------------------------------------------------------------
+                    (λx.x) ( (λz.(λy.z y)) (λw.w) )      // (λx.x) è un valore -> mi trovo davanti ad una applicazione
+
+
+            (λz.(λy.z y)) (λw.w) --> λy.(λw.w) y
+(E-App1) -------------------------------------------
+                (λz.(λy.z y)) (λw.w)      //sono entrambi termini redessi -> con la chiamata per nome riduco il più a sinistra
+
+
+            λy.(λw.w) y --> λy.y
+(E-Lambda) -----------------------------
+                λy.(λw.w) y  // per la beta (λw.w) y è na sottoespressione che posso valutare
