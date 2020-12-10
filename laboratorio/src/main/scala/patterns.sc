@@ -31,7 +31,6 @@ val countWords: String => List[Tuple2[String,Int]] = (filename) => {
     .foldLeft(Map.empty[String, Int]){
       (count, word) => count + (word -> (count.getOrElse(word, 0) + 1))
     }
-    .map(entry => (entry._1,entry._2))
     .toList
     .sortBy(_._1)
 }
@@ -65,8 +64,26 @@ val sequenza: List[Option[Int]] => Option[List[Int]] = l => {
   seqA(List(),l)
 }
 
+val seqIter:  List[Option[Int]] => Option[List[Int]] = l => {
+  var resp: Option[List[Int]] = Some(List[Int]())
+  var s = l;
+  while(s.nonEmpty){
+    if(s.head.isDefined){
+      resp = Some(s.head.get::resp.get)
+      s = s.tail
+    }else{
+      s = Nil
+      resp = None
+    }
+  }
+  resp
+}
+
 sequenza (List(Some(1),Some(2),Some(77)))
 sequenza (List(Some(1),None,Some(77)))
+
+seqIter (List(Some(1),Some(2),Some(77)))
+seqIter (List(Some(1),None,Some(77)))
 
 //ES 15.b
 
