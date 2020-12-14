@@ -69,7 +69,25 @@ val longestMatch: (List[Int], Int => Boolean) => List[Int] = (l, f) => {
     }
   }
 }
-longestMatch(List(1, 2, 3, 4, 1, 2, 2,2,2,3, 3, 4, 1, 1, 1, 1, 1), (_ < 4))
+longestMatch(List(1, 2, 3, 4, 1, 2, 2, 2, 2, 3, 3, 4, 1, 1, 1, 1, 1), (_ < 4))
+
+val longestMatchL: (List[Int], Int => Boolean) => List[Int] = (l, f) => {
+  var longest = List[Int]();
+  var target = l;
+  do {
+    val l1 = target.takeWhile(f);
+    if (l1.length > longest.length) {
+      longest = l1;
+    }
+    val drop = target.dropWhile(f);
+    target = if (drop.isEmpty) drop else drop.tail
+  }while(target.nonEmpty)
+  longest
+
+}
+longestMatchL(List(1, 2, 3, 4, 1, 2, 2, 2, 2, 3, 3, 4, 1, 1, 1, 1, 1), (_ < 4))
+
+
 
 
 
