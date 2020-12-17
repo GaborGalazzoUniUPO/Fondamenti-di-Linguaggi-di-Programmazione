@@ -97,3 +97,4 @@ val parseInts:List[String]=>Option[List[Int]] = l => {
 
 parseInts (List("1","2","77"))
 parseInts (List("1","due","77"))
+
