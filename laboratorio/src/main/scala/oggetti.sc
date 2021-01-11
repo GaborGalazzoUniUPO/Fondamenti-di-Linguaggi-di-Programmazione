@@ -61,6 +61,7 @@ def simplify(e: Expr): Expr = {
     case BinOp("*", _, Number(0)) => Number(0)
     case BinOp("*", Number(1), n) => n
     case BinOp("*", n, Number(1)) => n
+    case _ => e
   }
 }
 
@@ -76,6 +77,6 @@ val e = BinOp("+", BinOp("/", Var("x"), Number(2)),BinOp("/", Number(1.5), Var("
 expToString(e)
 simplify(UnOp("!",UnOp("!",Var("x"))))
 simplify(UnOp("!",UnOp("!",Var("x"))))
-
+simplify(Var("2"))
 
 
