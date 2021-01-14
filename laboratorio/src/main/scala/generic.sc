@@ -15,8 +15,9 @@ object Stack{
        val empty = new Stack[Nothing](Nil)
 }
 val stack = Stack.empty
-val s2 = stack.push("ciao")
-val s3 = s2.push(new Object())
+val s2: Stack[String] = stack.push("ciao")
+val s2_t: Stack[Any] = s2;
+val s3 = s2_t.push(new Object())
 val s4 = s3.push(2)
 val s5 = s4.pop()
 
