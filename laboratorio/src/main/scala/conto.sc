@@ -49,14 +49,14 @@ trait TimestampLogger extends StreamLogger {
 }
 
 trait ShortLogger extends StreamLogger {
-  protected override def log(msg: String):Unit = {
+  override def log(msg: String):Unit = {
     super.log(if (msg.length <= 15) msg else s"${msg.substring(0, 12)}...")
   }
 }
 
 
 trait CesarLogger extends StreamLogger {
-  protected override def log(msg: String):Unit ={
+  override def log(msg: String):Unit ={
     super.log(msg.map(_ + 3).map(_.asInstanceOf[Char]).foldLeft("")((s:String,c) => s+c))
   }
 }
