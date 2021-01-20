@@ -89,5 +89,5 @@ doThings(new ContoConLog(10.0) with ConsoleLogger with CesarLogger)
 doThings(new ContoConLog(10.0) with ConsoleLogger with CesarLogger with ShortLogger)
 doThings(new ContoConLog(10.0) with ConsoleLogger with ShortLogger with CesarLogger)
 doThings(new ContoConLog(10.0) with FileLogger {
-  override val filename = "/home/20024195/workspace/Fondamenti-di-Linguaggi-di-Programmazione/laboratorio/log.log"
+  override val filename = "./log.log"
 })
