@@ -51,7 +51,7 @@ val caratteri: List[Char] => (Int, Int, Int, Int, Int) = (list) => {
 
 caratteri(List('a', 'b', 'e', 'i', 'a', 'c'))
 
-//ES4 Vocali
+//ES4
 
 val flat1: (List[List[Int]] => List[Int]) = {
   case Nil => Nil
